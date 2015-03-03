@@ -1,5 +1,6 @@
 {% include css/bootstrap.min.css %}
 {% include css/agency.css %}
+{% include css/flipclock.css %}
 
 .mobile-social-share {
     background: none repeat scroll 0 0 #EEEEEE;
