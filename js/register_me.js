@@ -12,6 +12,7 @@ $(function() {
             var email = $("input#reg-email").val();
             var url = $("input#reg-url").val();
             var payment = $("input:radio:checked").val();
+            var quantity = $("input#reg-quantity").val();
             var firstName = name; // For Success/Failure Message
             // Check for white space in name for Success/Fail message
             if (firstName.indexOf(' ') >= 0) {
@@ -24,18 +25,35 @@ $(function() {
                     "entry.1239589934": name,
                     "entry.1275507538": email,
                     "entry.926689343": url,
-                    "entry.40684949": payment
+                    "entry.40684949": payment,
+                    "entry.1999478464": quantity
                 },
                 dataType: "xml",
                 //success: function() {
                 statusCode: {
                     0: function() {
                         // Success message
-                        successMessage(payment);
+                        successMessage();
+                        // Redirect to PayPal
+                        if (payment == "PayPal") {
+                            redirectPaypal(quantity);
+                        }
+                        // Tell them where/when to send check
+                        else if (payment == "Check") {
+                            // further instructions
+                        }
                     },
                     200: function() {
                         // Success message
-                        successMessage(payment);
+                        successMessage();
+                        // Redirect to PayPal
+                        if (payment == "PayPal") {
+                            redirectPaypal(quantity);
+                        }
+                        // Tell them where/when to send check
+                        else if (payment == "Check") {
+                            // further instructions
+                        }
                     }
                 },
                 error: function() {
@@ -67,7 +85,7 @@ $('#reg-name').focus(function() {
     $('#register-success').html('');
 });
 
-function successMessage(paymentMethod) {
+function successMessage() {
     // Success message
     $('#register-success').html("<div class='alert alert-success'>");
     $('#register-success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
@@ -79,9 +97,12 @@ function successMessage(paymentMethod) {
 
     //clear all fields
     $('#registerForm').trigger("reset");
+};
 
+function redirectPaypal(quantity) {
     //direct the user to PayPal
-    if (paymentMethod == "PayPal") {
-        window.location.href = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ETQQ9GZ5A9T56";
-    }
+    window.location.href = "https://www.paypal.com/cgi-bin/webscr?"+
+                           "cmd=_s-xclick&"+
+                           "hosted_button_id=ETQQ9GZ5A9T56&"+
+                           "quantity="+quantity;
 };

@@ -26,11 +26,18 @@
                                 <div class="control-group">
                                     <label class="control-label">Payment Method *</label>
                                     <div class="radio">
-                                        <input type="radio" name="optradio" value="PayPal" required data-validation-required-message="Please select a payment method.">PayPal
+                                        <label class="control-label"><input type="radio" name="optradio" value="PayPal" required data-validation-required-message="Please select a payment method.">PayPal</label>
                                     </div>
                                     <div class="radio">
-                                        <input type="radio" name="optradio" value="Check">Check
+                                        <label class="control-label"><input type="radio" name="optradio" value="Check">Check</label>
                                     </div>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="howManyRegistrations">How many people would you like to register?</label>
+                                <div class="controls">
+                                    <input type="number" name="quantity" class="form-control" id="reg-quantity" required data-validation-required-message="Please let us know how many will be attending.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
