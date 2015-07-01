@@ -1,0 +1,54 @@
+<section id="register" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Register</h2>
+                    <h3 class="section-subheading text-muted">Complete this simple form to register for Submerge</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <form name="sentRegister" id="registerForm" class="registration-form" novalidate>
+                        <div class="row">
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" placeholder="Your Name *" id="reg-name" required data-validation-required-message="Please enter your name.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control" placeholder="Your Email *" id="reg-email" required data-validation-required-message="Please enter your email address.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <input type="url" name="url" class="form-control" placeholder="Your Site *" id="reg-url" required data-validation-required-message="Please enter a valid website.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <div class="control-group">
+                                    <label class="control-label">Payment Method *</label>
+                                    <div class="radio">
+                                        <label class="control-label"><input type="radio" name="optradio" value="PayPal" required data-validation-required-message="Please select a payment method.">PayPal</label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="control-label"><input type="radio" name="optradio" value="Check">Check</label>
+                                    </div>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="howManyRegistrations">How many people would you like to register?</label>
+                                <div class="controls">
+                                    <input type="number" name="quantity" class="form-control" id="reg-quantity" required data-validation-required-message="Please let us know how many will be attending.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-lg-12 text-center">
+                                <div id="register-success"></div>
+                                <button type="submit" class="btn btn-xl">Register</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+</section>
